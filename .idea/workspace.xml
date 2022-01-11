@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98843902-4353-43df-bea8-485c90ff09cf" name="Default Changelist" comment="" />
+    <list default="true" id="98843902-4353-43df-bea8-485c90ff09cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forward_regressor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/sources/s-7ADC80AA/CD487729" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/sources/s-7ADC80AA/CD487729" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/sources/s-7ADC80AA/CD487729-contents" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/sources/s-7ADC80AA/CD487729-contents" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/c6itqzacad861/000002.csv" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/c6itqzacad861/000002.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/cbh19iu5cqcp4/000002.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/cdiygw7shnc1i/000002.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/chr4jtrv8eevk/000002.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/chunks.json" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/chunks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/coy8r51llmkzm/000028.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/crkc6kj34uyrd/000002.csv" beforeDir="false" afterPath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/crkc6kj34uyrd/000002.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.Rproj.user/BBE47BCF/unsaved-notebooks/CD487729/1/cy7oceb8blwf5/000023.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +26,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="93">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -22,8 +41,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="631">
               <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/forward_regressor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -35,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -57,12 +88,16 @@
       <find>err</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/data_generator.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/forward_regressor.py" />
       </list>
     </option>
   </component>
@@ -72,6 +107,7 @@
     <option name="width" value="1429" />
     <option name="height" value="799" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -92,6 +128,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -192,18 +229,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/forward_regressor.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file:///opt/anaconda3/envs/SyntheticLikelihood/lib/python3.7/site-packages/rpy2/robjects/packages.py" />
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="631">
           <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -211,10 +252,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///opt/anaconda3/envs/likelihoodFree/lib/python3.9/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="2245" selection-start-line="2245" selection-end-line="2245" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="93">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forward_regressor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
