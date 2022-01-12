@@ -101,8 +101,8 @@ class forward_regressor():
         std = np.sqrt(np.diag(self.all_cov[0]))
         high = mean + 5*std
         low = mean - 5*std
-        x = np.linspace(low[i], high[i], 1000)
-        y = np.linspace(low[j], high[j], 1000)
+        x = np.linspace(low[i], high[i], 100)
+        y = np.linspace(low[j], high[j], 100)
         X, Y = np.meshgrid(x, y)
         Z = compute_log_posterior_vec(X, Y)
         fig, ax = plt.subplots()
