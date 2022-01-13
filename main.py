@@ -20,11 +20,11 @@ if __name__ == "__main__":
 
     #regressor = forward_regressor(2)
     like_approx = likelihood_approximation()
-    all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta =like_approx.generate_data(1)
-    np.save("data_true/cls_tt.npy", all_cls_tt_hat[0, :])
-    np.save("data_true/cls_ee.npy", all_cls_ee_hat[0, :])
-    np.save("data_true/cls_te.npy", all_cls_te_hat[0, :])
-    np.save("data_true/all_theta.npy", all_theta[0, :])
+    #all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta =like_approx.generate_data(1)
+    #np.save("data_true/cls_tt.npy", all_cls_tt_hat[0, :])
+    #np.save("data_true/cls_ee.npy", all_cls_ee_hat[0, :])
+    #np.save("data_true/cls_te.npy", all_cls_te_hat[0, :])
+    #np.save("data_true/all_theta.npy", all_theta[0, :])
 
     all_cls_tt_hat = np.load("data_true/cls_tt.npy")
     all_cls_ee_hat = np.load("data_true/cls_ee.npy")
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
 
     like_approx.set_observed_cls(all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat)
-    mh = metropolisHastings(like_approx, cosmo_proposal_std=config.COSMO_PARAMS_SIGMA_PRIOR*0.7)
+    mh = metropolisHastings(like_approx, cosmo_proposal_std=config.COSMO_PARAMS_SIGMA_PRIOR*0.6)
     theta_init = np.random.normal(scale = config.COSMO_PARAMS_SIGMA_PRIOR) + config.COSMO_PARAMS_MEAN_PRIOR
     N = 1000
     start_time = time()
