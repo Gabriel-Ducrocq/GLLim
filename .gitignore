@@ -1,3 +1,4 @@
 *.npy
 .Rproj.user
 *.fits
+*.json
