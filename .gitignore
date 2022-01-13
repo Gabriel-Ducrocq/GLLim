@@ -1,2 +1,3 @@
 *.npy
 .Rproj.user
+*.fits
