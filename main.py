@@ -39,8 +39,7 @@ if __name__ == "__main__":
     start_time = time()
     res = mh.run(theta_init, N)
     end_time = time()
-    print("For "+str(N)+ "iterations:", end_time-start_time)
-    print(res.shape)
+    np.save("data/mh_preliminary_run.npy", res)
 
 
 
