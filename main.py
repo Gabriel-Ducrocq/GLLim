@@ -31,9 +31,8 @@ if __name__ == "__main__":
     all_cls_te_hat = np.load("data_true/cls_te.npy")
     all_theta = np.load("data_true/all_theta.npy")
 
-
     like_approx.set_observed_cls(all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat)
-    mh = metropolisHastings(like_approx, cosmo_proposal_std=config.COSMO_PARAMS_SIGMA_PRIOR*0.6)
+    mh = metropolisHastings(like_approx, cosmo_proposal_cov=config.proposal_covariance*0.6)
     theta_init = np.random.normal(scale = config.COSMO_PARAMS_SIGMA_PRIOR) + config.COSMO_PARAMS_MEAN_PRIOR
     N = 5000
     start_time = time()

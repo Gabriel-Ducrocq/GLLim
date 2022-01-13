@@ -4,17 +4,20 @@ import config
 
 class metropolisHastings:
     def __init__(self, likelihood, lmax=config.lmax, cosmo_names=config.COSMO_PARAMS_NAMES, cosmo_prior_mean = config.COSMO_PARAMS_MEAN_PRIOR,
-                 cosmo_prior_std = config.COSMO_PARAMS_SIGMA_PRIOR, cosmo_proposal_std = config.COSMO_PARAMS_SIGMA_PRIOR):
+                 cosmo_prior_std = config.COSMO_PARAMS_SIGMA_PRIOR, cosmo_proposal_cov = config.proposal_covariance,
+                 preliminary_run=config.preliminary_run):
         self.lmax = lmax
         self.cosmo_prior_std = cosmo_prior_std
         self.cosmo_prior_mean = cosmo_prior_mean
-        self.cosmo_proposal_std = cosmo_proposal_std
+        self.cosmo_proposal_cov = cosmo_proposal_cov
+        self.cosmo_proposal_sqrt_cov = np.linalg.cholesky(cosmo_proposal_cov)
         self.cosmo_names = cosmo_names
         self.likelihood = likelihood
         self.old_log_lik = None
+        self.preliminary_run = preliminary_run
 
     def compute_log_prior(self, theta):
-        return -(1/2)*np.sum((theta - self.cosmo_prior_mean)**2/self.cosmo_prior_std**2)
+        return -(1/2)*np.sum((theta - self.cosmo_prior_mean)**2/self.cosmo_proposal_cov)
 
 
     def compute_log_ratio(self, theta_proposed, theta_current):
@@ -29,7 +32,11 @@ class metropolisHastings:
         return log_ratio, log_lik_proposed
 
     def propose_theta(self, theta_current):
-        theta_proposed = np.random.normal(scale = self.cosmo_proposal_std) + theta_current
+        if self.preliminary_run:
+            theta_proposed = np.random.normal(scale = np.sqrt(self.cosmo_proposal_cov)) + theta_current
+            return theta_proposed
+
+        theta_proposed = np.dot(self.cosmo_proposal_sqrt_cov, np.random.normal(size=len(self.cosmo_names))) + theta_current
         return theta_proposed
 
     def run(self, theta, N):
