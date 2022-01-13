@@ -20,7 +20,7 @@ class metropolisHastings:
         self.preliminary_run = preliminary_run
 
     def compute_log_prior(self, theta):
-        return -(1/2)*np.sum((theta - self.cosmo_prior_mean)**2/self.cosmo_proposal_cov)
+        return -(1/2)*np.sum((theta - self.cosmo_prior_mean)**2/self.cosmo_prior_std**2)
 
 
     def compute_log_ratio(self, theta_proposed, theta_current):

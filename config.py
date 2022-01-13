@@ -27,8 +27,8 @@ preliminary_run = False
 if not preliminary_run:
     preliminary_chain = np.load("data/mh_preliminary_run.npy")
     proposal_covariance = np.cov(preliminary_chain.T)
-    np.fill_diagonal(proposal_covariance, np.array([0.0038, 0.00014, 0.00091, 0.00029, 0.014, 0.0071])**2)
-    proposal_covariance = np.zeros((6, 6))
-    np.fill_diagonal(proposal_covariance, np.array([0.0038, 0.00014, 0.00091, 0.00029, 0.014, 0.0071]) ** 2)
-    print("\n")
-    print(np.diag(proposal_covariance))
+    #np.fill_diagonal(proposal_covariance, np.array([0.0038, 0.00014, 0.00091, 0.00029, 0.014, 0.0071])**2)
+    #proposal_covariance = np.zeros((6, 6))
+    #np.fill_diagonal(proposal_covariance, np.array([0.0038, 0.00014, 0.00091, 0.00029, 0.014, 0.0071]) ** 2)
+    #print("\n")
+    #print(np.diag(proposal_covariance))
