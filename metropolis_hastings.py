@@ -10,7 +10,10 @@ class metropolisHastings:
         self.cosmo_prior_std = cosmo_prior_std
         self.cosmo_prior_mean = cosmo_prior_mean
         self.cosmo_proposal_cov = cosmo_proposal_cov
-        self.cosmo_proposal_sqrt_cov = np.linalg.cholesky(cosmo_proposal_cov)
+        self.cosmo_proposal_sqrt_cov = None
+        if not preliminary_run:
+            self.cosmo_proposal_sqrt_cov = np.linalg.cholesky(cosmo_proposal_cov)
+
         self.cosmo_names = cosmo_names
         self.likelihood = likelihood
         self.old_log_lik = None
