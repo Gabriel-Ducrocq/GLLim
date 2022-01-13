@@ -101,17 +101,6 @@ class generator():
         self.save_data(all_cls_tt_hat, all_cls_ee_hat, all_cls_bb_hat, all_cls_te_hat, all_theta)
 
 
-    def sample_likelihood(self, N):
-        all_cls_tt_hat = np.zeros((N, self.lmax-1))
-        all_cls_ee_hat = np.zeros((N, self.lmax-1))
-        all_cls_bb_hat = np.zeros((N, self.lmax-1))
-        all_cls_te_hat = np.zeros((N, self.lmax-1))
-
-        all_theta = self.generate_theta(N)
-        cls_tb = np.zeros(self.lmax+1)
-        cls_eb = np.zeros(self.lmax+1)
-        start = time()
-
 
 
 

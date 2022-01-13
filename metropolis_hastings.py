@@ -37,7 +37,7 @@ class metropolisHastings:
         all_theta[0, :] = theta[:]
         accept = 0
         for i in range(1, N+1):
-            if i % 10 == 0:
+            if i % 1 == 0:
                 print(i)
 
             proposed_theta = self.propose_theta(theta)

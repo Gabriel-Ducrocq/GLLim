@@ -20,11 +20,11 @@ if __name__ == "__main__":
 
     #regressor = forward_regressor(2)
     like_approx = likelihood_approximation()
-    #all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta =like_approx.generate_data(1)
-    #np.save("data_true/cls_tt.npy", all_cls_tt_hat[0, :])
-    #np.save("data_true/cls_ee.npy", all_cls_ee_hat[0, :])
-    #np.save("data_true/cls_te.npy", all_cls_te_hat[0, :])
-    #np.save("data_true/all_theta.npy", all_theta[0, :])
+    all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta =like_approx.generate_data(1)
+    np.save("data_true/cls_tt.npy", all_cls_tt_hat[0, :])
+    np.save("data_true/cls_ee.npy", all_cls_ee_hat[0, :])
+    np.save("data_true/cls_te.npy", all_cls_te_hat[0, :])
+    np.save("data_true/all_theta.npy", all_theta[0, :])
 
     all_cls_tt_hat = np.load("data_true/cls_tt.npy")
     all_cls_ee_hat = np.load("data_true/cls_ee.npy")

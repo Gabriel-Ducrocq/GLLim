@@ -32,9 +32,8 @@ class likelihood_approximation:
         if self.mask_path is not None:
             self.mask = hp.ud_grade(hp.read_map(self.mask_path, 0), self.nside)
             self.fsky = np.mean(self.mask)
-            self.fsky=1
 
-        self.rescale = np.array([np.round((2*l+1)*self.fsky) for l in range(2, self.lmax+1)])
+        self.rescale = np.array([int(np.round((2*l+1)*self.fsky)) for l in range(2, self.lmax+1)])
 
     def generate_cls(self, theta):
         params = {'output': config.OUTPUT_CLASS,
@@ -80,7 +79,7 @@ class likelihood_approximation:
             for l in range(2, self.l_cut+1):
                 cov = np.array([[cls_tt[l], cls_te[l]], [cls_te[l], cls_ee[l]]])
                 sqrt_cov = np.linalg.cholesky(cov)
-                number_modes = np.round((2*l+1)*self.fsky)
+                number_modes = int(np.round((2*l+1)*self.fsky))
                 #number_modes = l
 
                 slms = np.random.normal(size = (2, number_modes)) \
@@ -146,7 +145,7 @@ class likelihood_approximation:
         log_lik = -(1/2)*np.sum(individual_lik[:self.l_cut-1])
 
         for l in range(self.l_cut-1, self.lmax -1):
-            cov = (2 / ((2 * (l+2) + 1) * self.fsky)) * np.array(
+            cov = (2 / int(np.round((2 * (l+2) + 1) * self.fsky))) * np.array(
                 [[cls_tt_bar[l] ** 2, cls_tt_bar[l] * cls_te_bar[l], cls_te_bar[l] ** 2],
                  [cls_tt_bar[l] * cls_te_bar[l], (1 / 2) * (cls_tt_bar[l] * cls_ee_bar[l] + cls_te_bar[l] ** 2),
                   cls_te_bar[l] * cls_ee_bar[l]],

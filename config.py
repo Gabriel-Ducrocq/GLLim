@@ -12,7 +12,7 @@ nside = 256
 lmax = 2*nside
 npix = 12*nside**2
 
-mask_path = None
+mask_path = "data/HFI_Mask_GalPlane-apo0_2048_R2_80%_bis.00.fits"
 noise_covar_temp = (0.2/np.sqrt(2))**2
 noise_covar_pol = 0.2**2
 
