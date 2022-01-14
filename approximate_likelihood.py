@@ -72,7 +72,7 @@ class likelihood_approximation:
             start = time()
             cls_tt, cls_ee, cls_te = self.generate_cls(theta)
             end = time()
-            print("Cls gen time:", end - start)
+            #print("Cls gen time:", end - start)
             cls_tt_bar = cls_tt + self.bl_gauss*self.noise_covar_temp
             cls_ee_bar = cls_ee + self.bl_gauss*self.noise_covar_pol
             cls_te_bar = cls_te
@@ -123,7 +123,7 @@ class likelihood_approximation:
             ##plt.yscale("log")
             ##plt.xscale("log")
             #plt.show()
-            print("Total time:", end_again- start)
+            #print("Total time:", end_again- start)
         return all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta
 
     def set_observed_cls(self, cls_tt, cls_ee, cls_te):
