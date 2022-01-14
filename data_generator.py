@@ -63,11 +63,11 @@ class generator():
             return I, Q, U
 
     def save_data(self, cls_tt_hat, cls_ee_hat, cls_bb_hat, cls_te_hat, all_theta):
-        np.save("data/cls_tt.npy", cls_tt_hat)
-        np.save("data/cls_ee.npy", cls_ee_hat)
-        np.save("data/cls_bb.npy", cls_bb_hat)
-        np.save("data/cls_te.npy", cls_te_hat)
-        np.save("data/theta.npy", all_theta)
+        np.save("data/cls_tt_pseudo.npy", cls_tt_hat)
+        np.save("data/cls_ee_pseudo.npy", cls_ee_hat)
+        np.save("data/cls_bb_pseudo.npy", cls_bb_hat)
+        np.save("data/cls_te_pseudo.npy", cls_te_hat)
+        np.save("data/theta_pseudo.npy", all_theta)
 
     def generate_data(self, N):
         rescale = np.array([l*(l+1)/(2*np.pi) for l in range(2, self.lmax+1)])

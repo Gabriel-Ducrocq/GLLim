@@ -1,7 +1,7 @@
 {
     "id": "CD487729",
-    "path": null,
-    "project_path": null,
+    "path": "~/PycharmProjects/GLLim/Untitled.Rmd",
+    "project_path": "Untitled.Rmd",
     "type": "r_markdown",
     "hash": "0",
     "contents": "",
@@ -12,15 +12,15 @@
     "properties": {
         "tempName": "Untitled1",
         "chunk_output_type": "inline",
-        "cursorPosition": "97,11",
-        "scrollLine": "74"
+        "cursorPosition": "39,61",
+        "scrollLine": "23"
     },
     "folds": "",
-    "lastKnownWriteTime": 7526747965514670624,
-    "encoding": "",
+    "lastKnownWriteTime": 1642167832,
+    "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1641912549164,
+    "last_content_update": 1642179878142,
     "read_only": false,
     "read_only_alternatives": []
 }

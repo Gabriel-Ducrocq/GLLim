@@ -92,11 +92,11 @@ class forward_regressor():
         return np.log(posterior)
 
 
-    def plot_bivariates(self, i, j):
+    def plot_bivariates(self, i, j, mcmc_chain):
         self.i = i
         self.j = j
         compute_log_posterior_vec = np.vectorize(self.compute_bivariate_log_posterior)
-        mean = self.all_means[0]
+        mean = self.all_means[1]
 
         std = np.sqrt(np.diag(self.all_cov[0]))
         high = mean + 5*std
@@ -110,6 +110,7 @@ class forward_regressor():
         CS = ax.contour(X, Y, Z)
         ax.clabel(CS, inline=1, fontsize=10)
         ax.set_title('Contour plot of the log posterior')
+        plt.plot(mcmc_chain[:, i], mcmc_chain[:, j], "o", alpha= 0.3)
         plt.show()
 
 

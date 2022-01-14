@@ -21,16 +21,16 @@ library(RJSONIO)
 ```
 
 ```{r}
-cls_tt <- t(npyLoad("data/cls_tt.npy"))[1:511, 1:5000]/10
-cls_ee <- t(npyLoad("data/cls_ee.npy"))[1:511, 1:5000]/10
-cls_bb <- t(npyLoad("data/cls_bb.npy"))[1:511, 1:5000]/10
-cls_te <- t(npyLoad("data/cls_te.npy"))[1:511, 1:5000]/10
-all_theta <- t(npyLoad("data/theta.npy"))[1:6, 1:5000]
+cls_tt <- t(npyLoad("data/cls_tt.npy"))[1:511, 1:1000]/10
+cls_te <- t(npyLoad("data/cls_te.npy"))[1:511, 1:1000]/10
+cls_ee <- t(npyLoad("data/cls_ee.npy"))[1:511, 1:1000]/10
+all_theta <- t(npyLoad("data/all_theta.npy"))[1:6, 1:1000]
+print(dim(all_theta))
 print(dim(cls_tt))
 ```
 
 ```{r}
-covariates <- rbind(cls_tt, cls_ee, cls_bb, cls_te)
+covariates <- rbind(cls_tt, cls_ee, cls_te)
 print(dim(covariates))
 #covariates <- covariates[1:2044, 1:5000]
 #print(dim(covariates))
@@ -42,25 +42,18 @@ gllim_res <- gllim(all_theta, covariates, in_K = 2, verb = 1)
 
 ```{r}
 plot(gllim_res$LL)
-```
-```{r}
-res <- gllim_inverse_map(covariates, gllim_res)
-```
-```{r}
-res$x_exp[1:6, 1]
+
 ```
 
+
 ```{r}
-cls_tt_test <- t(npyLoad("data/cls_tt.npy"))[1:511, 1:50000]/10
-cls_ee_test <- t(npyLoad("data/cls_ee.npy"))[1:511, 1:50000]/10
-cls_bb_test <- t(npyLoad("data/cls_bb.npy"))[1:511, 1:50000]/10
-cls_te_test <- t(npyLoad("data/cls_te.npy"))[1:511, 1:50000]/10
-all_theta_test <- t(npyLoad("data/theta.npy"))[1:6, 1:50000]
+cls_tt_test <- npyLoad("data_true/cls_tt.npy")/10
+cls_ee_test <- npyLoad("data_true/cls_ee.npy")/10
+cls_te_test <- npyLoad("data_true/cls_te.npy")/10
 print(dim(cls_tt_test))
 ```
 ```{r}
-covariates_test <- rbind(cls_tt_test, cls_ee_test, cls_bb_test, cls_te_test)
-covariates_test <- covariates_test[1:2044, 49999:50000]
+covariates_test <- matrix(c(cls_tt_test, cls_ee_test,cls_te_test), ncol=1)
 print(dim(covariates_test))
 ```
 
@@ -85,16 +78,8 @@ write(jsonSaved, "data/parameters.json")
 ```{r}
 npySave("data/posterior_weights.npy", res$alpha)
 ```
-```{r}
-dim(gllim_res$A)
-```
 
 
-```{r}
-npySave("data/covariates_test.npy", covariates_test)
-```
 
-```{r}
-jsonSaved$A
-```
+
 
