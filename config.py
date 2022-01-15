@@ -22,7 +22,7 @@ beam_fwhm = 0.5
 beam_fwhm_radians = (np.pi / 180) * beam_fwhm
 
 
-preliminary_run = False
+preliminary_run = True
 
 if not preliminary_run:
     preliminary_chain = np.load("data/mh_preliminary_run.npy")
