@@ -12,8 +12,8 @@ import healpy as hp
 if __name__ == "__main__":
     np.random.seed()
 
-    gen = generator()
-    gen.generate_data(1000)
+    #gen = generator()
+    #gen.generate_data(1000)
 
     #with open("data/parameters.json", "rb") as f:
     #    parameters = json.load(f)
