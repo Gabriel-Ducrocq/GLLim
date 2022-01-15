@@ -98,7 +98,7 @@ class likelihood:
             nu = 2*l+1
             p = 2
             log_lik += ((nu - p - 1)/2)*np.log(np.linalg.det(C_observed_mat[l, :, :])) - (nu/2)* np.log(np.linalg.det(C_mat[l, :, :]/nu))\
-            *np.sum(np.diag(np.linalg.solve(C_mat[l, :,:]/nu, C_observed_mat)/2))
+            *np.sum(np.diag(np.linalg.solve(C_mat[l, :,:]/nu, C_observed_mat[l, :, :])/2))
 
         return log_lik
 
