@@ -56,9 +56,9 @@ class likelihood:
         np.save("data/all_theta.npy", all_theta)
 
     def generate_data(self, N):
-        all_cls_tt_hat = np.zeros((N, self.lmax-1))
-        all_cls_ee_hat = np.zeros((N, self.lmax-1))
-        all_cls_te_hat = np.zeros((N, self.lmax-1))
+        all_cls_tt_hat = np.zeros((N, self.lmax+1))
+        all_cls_ee_hat = np.zeros((N, self.lmax+1))
+        all_cls_te_hat = np.zeros((N, self.lmax+1))
 
         all_theta = self.generate_theta(N)
         for i, theta in enumerate(all_theta):
