@@ -84,21 +84,21 @@ class likelihood:
     def compute_log_likelihood(self, theta):
         cls_tt, cls_ee, cls_te = self.generate_cls(theta)
         C_mat = np.zeros((self.lmax+1, 2, 2))
-        C_mat[:, 0, 0] = cls_tt
-        C_mat[:, 1, 1] = cls_ee
-        C_mat[:, 1, 0] = cls_te
-        C_mat[:, 0, 1] = cls_te
+        C_mat[:, 0, 0] = cls_tt[:]
+        C_mat[:, 1, 1] = cls_ee[:]
+        C_mat[:, 1, 0] = cls_te[:]
+        C_mat[:, 0, 1] = cls_te[:]
 
         C_observed_mat = np.zeros((self.lmax+1, 2, 2))
-        C_observed_mat[:, 0, 0] = self.cls_tt_observed
-        C_observed_mat[:, 1, 1] = self.cls_ee_observed
-        C_observed_mat[:, 1, 0] = C_observed_mat[:, 0, 1] = self.cls_te_observed
+        C_observed_mat[:, 0, 0] = self.cls_tt_observed[:]
+        C_observed_mat[:, 1, 1] = self.cls_ee_observed[:]
+        C_observed_mat[:, 1, 0] = C_observed_mat[:, 0, 1] = self.cls_te_observed[:]
         log_lik = 0
         for l in range(2, self.lmax+1):
             nu = 2*l+1
             p = 2
             log_lik += ((nu - p - 1)/2)*np.log(np.linalg.det(C_observed_mat[l, :, :])) - (nu/2)* np.log(np.linalg.det(C_mat[l, :, :]/nu))\
-            *np.sum(np.diag(np.linalg.solve(C_mat[l, :,:]/nu, C_observed_mat[l, :, :])/2))
+             - np.sum(np.diag(np.linalg.solve(C_mat[l, :,:]/nu, C_observed_mat[l, :, :])/2))
 
         return log_lik
 
