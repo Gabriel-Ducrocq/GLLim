@@ -69,9 +69,7 @@ class likelihood_approximation:
             if i % 10 == 0:
                 print(i)
 
-            start = time()
             cls_tt, cls_ee, cls_te = self.generate_cls(theta)
-            end = time()
             #print("Cls gen time:", end - start)
             cls_tt_bar = cls_tt + self.bl_gauss*self.noise_covar_temp
             cls_ee_bar = cls_ee + self.bl_gauss*self.noise_covar_pol
@@ -86,26 +84,19 @@ class likelihood_approximation:
                 + 1j * np.random.normal(size = (2, number_modes))
                 slms = np.dot(sqrt_cov/np.sqrt(2), slms)
 
-                slms_0 = np.dot( sqrt_cov, np.random.normal(size = 2))
 
                 nlms = np.random.normal(scale = np.sqrt(1/2), size = (2, number_modes)) \
                 + 1j * np.random.normal(scale = np.sqrt(1/2), size = (2, number_modes))
                 nlms = np.dot(np.diag(np.sqrt(self.bl_gauss[l]*self.noise_covar)), nlms)
 
-                nlms_0 = np.dot(np.diag(np.sqrt(self.bl_gauss[l]*self.noise_covar)), np.random.normal(size=2))
-
-                #alms_0 = slms_0 + nlms_0
                 alms = slms + nlms
 
                 all_cls_tt_hat[i, l-2] = np.mean(np.abs(alms[0, :])**2)
                 all_cls_ee_hat[i, l-2] = np.mean(np.abs(alms[1, :])**2)
                 all_cls_te_hat[i, l-2] = np.sum((alms[0, :].real*alms[1, :].real + alms[0, :].imag*alms[1, :].imag))/number_modes
-                #all_cls_tt_hat[i, l-2] = (alms_0[0]**2 + 2*np.sum(np.abs(alms[0, :])**2))/(2*l+1)
-                #all_cls_ee_hat[i, l - 2] = (alms_0[1] ** 2 + 2 * np.sum(np.abs(alms[1, :]) ** 2)) / (2 * l + 1)
-                #all_cls_te_hat[i, l-2] = (alms_0[0]*alms_0[1] + 2*np.sum(alms[0, :].real*alms[1, :].real + alms[0, :].imag*alms[1, :].imag))/(2*l+1)
 
             for l in range(self.l_cut+1, self.lmax+1):
-                cov = (2/((2*l+1)*self.fsky))*np.array([[cls_tt_bar[l]**2, cls_tt_bar[l]*cls_te_bar[l], cls_te_bar[l]**2],
+                cov = (2/np.round((2*l+1)*self.fsky))*np.array([[cls_tt_bar[l]**2, cls_tt_bar[l]*cls_te_bar[l], cls_te_bar[l]**2],
                                 [cls_tt_bar[l]*cls_te_bar[l], (1/2)*(cls_tt_bar[l]*cls_ee_bar[l] + cls_te_bar[l]**2), cls_te_bar[l]*cls_ee_bar[l]],
                                 [cls_te_bar[l]**2, cls_te_bar[l]*cls_ee_bar[l], cls_ee_bar[l]**2]])
 
@@ -116,7 +107,6 @@ class likelihood_approximation:
                 all_cls_te_hat[i, l - 2] = cl_te_hat + cls_te_bar[l]
                 all_cls_ee_hat[i, l - 2] = cl_ee_hat  + cls_ee_bar[l]
 
-            end_again = time()
             #rescale = np.array([l*(l+1)/(2*np.pi) for l in range(2, self.lmax+1)])
             #plt.plot(all_cls_te_hat[i, :]*rescale)
             #plt.plot(cls_te[2:]*rescale, color="red")

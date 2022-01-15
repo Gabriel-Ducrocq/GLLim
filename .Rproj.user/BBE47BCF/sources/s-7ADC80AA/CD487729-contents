@@ -21,10 +21,10 @@ library(RJSONIO)
 ```
 
 ```{r}
-cls_tt <- t(npyLoad("data/cls_tt.npy"))[1:511, 1:1000]/10
-cls_te <- t(npyLoad("data/cls_te.npy"))[1:511, 1:1000]/10
-cls_ee <- t(npyLoad("data/cls_ee.npy"))[1:511, 1:1000]/10
-all_theta <- t(npyLoad("data/all_theta.npy"))[1:6, 1:1000]
+cls_tt <- t(npyLoad("data/cls_tt_pseudo.npy"))/10
+cls_te <- t(npyLoad("data/cls_te_pseudo.npy"))/10
+cls_ee <- t(npyLoad("data/cls_ee_pseudo.npy"))/10
+all_theta <- t(npyLoad("data/theta_pseudo.npy"))
 print(dim(all_theta))
 print(dim(cls_tt))
 ```

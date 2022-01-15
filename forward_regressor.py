@@ -113,4 +113,7 @@ class forward_regressor():
         plt.plot(mcmc_chain[:, i], mcmc_chain[:, j], "o", alpha= 0.3)
         plt.show()
 
+        print(np.corrcoef(mcmc_chain[:, i], mcmc_chain[:, j]))
+        print(self.all_cov[1][i, j]/np.sqrt(self.all_cov[1][i, i]*self.all_cov[1][j, j]))
+
 

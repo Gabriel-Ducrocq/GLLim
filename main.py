@@ -4,7 +4,7 @@ from data_generator import generator
 from approximate_likelihood import likelihood_approximation
 from forward_regressor import forward_regressor
 from metropolis_hastings import metropolisHastings
-
+from likelihood_no_noise import likelihood
 import config
 from time import time
 import healpy as hp
@@ -19,7 +19,14 @@ if __name__ == "__main__":
     #    parameters = json.load(f)
 
     #regressor = forward_regressor(2)
-    #like_approx = likelihood_approximation()
+    like_approx = likelihood()
+    all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta =like_approx.generate_data(1)
+    np.save("data_true/cls_tt.npy", all_cls_tt_hat[0, :])
+    np.save("data_true/cls_ee.npy", all_cls_ee_hat[0, :])
+    np.save("data_true/cls_te.npy", all_cls_te_hat[0, :])
+    np.save("data_true/all_theta.npy", all_theta[0, :])
+
+
     #all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta = like_approx.generate_data(10000)
     #np.save("data/cls_tt.npy", all_cls_tt_hat)
     #np.save("data/cls_ee.npy", all_cls_ee_hat)
