@@ -36,7 +36,7 @@ if __name__ == "__main__":
     like_approx.set_observed_cls(all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat)
     mh = metropolisHastings(like_approx, cosmo_proposal_cov=config.proposal_covariance*0.08)
     theta_init = np.random.normal(scale = config.COSMO_PARAMS_SIGMA_PRIOR) + config.COSMO_PARAMS_MEAN_PRIOR
-    N = 1000
+    N = 5000
     start_time = time()
     res = mh.run(theta_init, N)
     end_time = time()
