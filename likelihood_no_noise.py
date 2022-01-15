@@ -67,7 +67,8 @@ class likelihood:
 
             cls_tt, cls_ee, cls_te = self.generate_cls(theta)
 
-            alms_T, alms_E, _ = hp.synalm([cls_tt, cls_ee, cls_te, np.zeros(len(cls_te))], lmax=self.lmax,new = True)
+            alms_T, alms_E, _ = hp.synalm([cls_tt, cls_ee, np.zeros(len(cls_te)), cls_te, np.zeros(len(cls_te)),
+                                           np.zeros(len(cls_te))], lmax=self.lmax,new = True)
             cls_tt_hat, cls_ee_hat, cls_te_hat = hp.alm2cl([alms_T, alms_E], lmax=self.lmax)
 
             all_cls_tt_hat[i, :] = cls_tt_hat

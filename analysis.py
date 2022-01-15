@@ -5,7 +5,18 @@ from forward_regressor import forward_regressor
 import json
 
 
-chain = np.load("data/mh_official_run.npy")
+chain = np.load("data/mh_preliminary_run.npy")
+true_theta = np.load("data_true/all_theta.npy")
+print(true_theta.shape)
+print(chain.shape)
+for i in range(6):
+    plt.plot(chain[:, i])
+    plt.axhline(y=true_theta[:,i])
+    plt.show()
+
+
+
+"""
 true_theta = np.load("data_true/all_theta.npy")
 regressor = forward_regressor(2)
 
@@ -44,3 +55,4 @@ for i in range(6):
     plt.title(config.COSMO_PARAMS_NAMES[i])
     plt.axvline(x = true_theta[i])
     plt.show()
+"""
