@@ -50,10 +50,10 @@ class likelihood:
                                 size = (N, len(self.cosmo_params_names)))
 
     def save_data(self, cls_tt_hat, cls_ee_hat, cls_te_hat, all_theta):
-        np.save("data_true/cls_tt.npy", cls_tt_hat)
-        np.save("data_true/cls_ee.npy", cls_ee_hat)
-        np.save("data_true/cls_te.npy", cls_te_hat)
-        np.save("data_true/all_theta.npy", all_theta)
+        np.save("data/cls_tt.npy", cls_tt_hat)
+        np.save("data/cls_ee.npy", cls_ee_hat)
+        np.save("data/cls_te.npy", cls_te_hat)
+        np.save("data/all_theta.npy", all_theta)
 
     def generate_data(self, N):
         all_cls_tt_hat = np.zeros((N, self.lmax+1))

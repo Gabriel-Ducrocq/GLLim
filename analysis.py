@@ -5,16 +5,11 @@ from forward_regressor import forward_regressor
 import json
 
 
-chain = np.load("data/mh_preliminary_run.npy")
+chain = np.load("data/mh_official_run.npy")
 true_theta = np.load("data_true/all_theta.npy")
-print(true_theta.shape)
-print(chain.shape)
-for i in range(6):
-    plt.plot(chain[:, i])
-    plt.axhline(y=true_theta[:,i])
-    plt.show()
 
-
+def compute_normal(x, avg, std):
+    return np.exp(-(1/2)*(x-avg)**2/std**2)/np.sqrt(2*np.pi*std**2)
 
 """
 true_theta = np.load("data_true/all_theta.npy")
@@ -32,10 +27,6 @@ print(posterior_weights)
 regressor.compute_posterior_distribution(parameters, posterior_weights[0, :], dataset)
 
 
-def compute_normal(x, avg, std):
-    return np.exp(-(1/2)*(x-avg)**2/std**2)/np.sqrt(2*np.pi*std**2)
-
-
 print(np.cov(chain.T))
 print("\n")
 print(np.corrcoef(chain.T))
@@ -44,7 +35,7 @@ print(chain.shape)
 #plt.plot(chain[:, 0], chain[:, 1], "o", alpha = 0.5)
 #plt.show()
 regressor.plot_bivariates(4, 5, chain)
-
+"""
 for i in range(6):
     low = np.mean(chain[:, i]) - 4*np.std(chain[:, i])
     high = np.mean(chain[:, i]) + 4 * np.std(chain[:, i])
@@ -53,6 +44,5 @@ for i in range(6):
     plt.hist(chain[:, i], bins = 30, density=True, alpha=0.5)
     plt.plot(x, y)
     plt.title(config.COSMO_PARAMS_NAMES[i])
-    plt.axvline(x = true_theta[i])
+    plt.axvline(x = true_theta[:, i])
     plt.show()
-"""
