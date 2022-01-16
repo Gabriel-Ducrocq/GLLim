@@ -98,7 +98,7 @@ class forward_regressor():
         compute_log_posterior_vec = np.vectorize(self.compute_bivariate_log_posterior)
         mean = self.all_means[1]
 
-        std = np.sqrt(np.diag(self.all_cov[0]))
+        std = np.sqrt(np.diag(self.all_cov[1]))
         high = mean + 5*std
         low = mean - 5*std
         x = np.linspace(low[i], high[i], 100)
@@ -113,7 +113,10 @@ class forward_regressor():
         plt.plot(mcmc_chain[:, i], mcmc_chain[:, j], "o", alpha= 0.3)
         plt.show()
 
+
+        print("AAAAAAA")
         print(np.corrcoef(mcmc_chain[:, i], mcmc_chain[:, j]))
         print(self.all_cov[1][i, j]/np.sqrt(self.all_cov[1][i, i]*self.all_cov[1][j, j]))
+        print("BBBBBBBB")
 
 

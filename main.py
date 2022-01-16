@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     #regressor = forward_regressor(2)
     like_approx = likelihood()
-    like_approx.generate_data(10000)
+    like_approx.generate_data(50000)
 
     #all_cls_tt_hat, all_cls_ee_hat, all_cls_te_hat, all_theta = like_approx.generate_data(10000)
     #np.save("data/cls_tt.npy", all_cls_tt_hat)

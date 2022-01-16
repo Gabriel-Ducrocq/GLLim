@@ -11,31 +11,30 @@ true_theta = np.load("data_true/all_theta.npy")
 def compute_normal(x, avg, std):
     return np.exp(-(1/2)*(x-avg)**2/std**2)/np.sqrt(2*np.pi*std**2)
 
-"""
+
 true_theta = np.load("data_true/all_theta.npy")
 regressor = forward_regressor(2)
 
 posterior_weights = np.load("data/posterior_weights.npy")
-cls_tt_true = np.load("data_true/cls_tt.npy")
-cls_te_true = np.load("data_true/cls_te.npy")
-cls_ee_true = np.load("data_true/cls_ee.npy")
+cls_tt_true = np.load("data_true/cls_tt.npy")[0, 2:]
+cls_te_true = np.load("data_true/cls_te.npy")[0, 2:]
+cls_ee_true = np.load("data_true/cls_ee.npy")[0, 2:]
 dataset = np.concatenate([cls_tt_true, cls_ee_true, cls_te_true])/10
 with open("data/parameters.json", "rb") as f:
     parameters = json.load(f)
 
 print(posterior_weights)
+print(dataset.shape)
 regressor.compute_posterior_distribution(parameters, posterior_weights[0, :], dataset)
 
 
-print(np.cov(chain.T))
-print("\n")
-print(np.corrcoef(chain.T))
+regressor.plot_bivariates(4,5, chain)
 
-print(chain.shape)
-#plt.plot(chain[:, 0], chain[:, 1], "o", alpha = 0.5)
-#plt.show()
-regressor.plot_bivariates(4, 5, chain)
-"""
+
+correlations = np.corrcoef(chain.T)
+
+plt.plot(chain[5000:, 0], chain[5000:, 4], "o", alpha = 0.5)
+plt.show()
 for i in range(6):
     low = np.mean(chain[:, i]) - 4*np.std(chain[:, i])
     high = np.mean(chain[:, i]) + 4 * np.std(chain[:, i])
