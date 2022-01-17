@@ -28,7 +28,7 @@ print(dataset.shape)
 regressor.compute_posterior_distribution(parameters, posterior_weights[0, :], dataset)
 
 
-regressor.plot_bivariates(4,5, chain)
+regressor.plot_bivariates(0,3, chain)
 
 
 correlations = np.corrcoef(chain.T)
