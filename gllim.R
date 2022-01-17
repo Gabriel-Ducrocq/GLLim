@@ -1,6 +1,4 @@
-install.packages("xLLiM")
-install.packages("NPy")
-install.packges("RJSONIO")
+install.packages("RJSONIO")
 library(xLLiM)
 library(RcppCNPy)
 library(RJSONIO)
