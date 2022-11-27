@@ -16,9 +16,10 @@ dim(all_theta)
 dim(t(cls_tt[1:10000, 3:2501]))
 
 #Works well with K=5
-gllim_res <- gllim(t(all_theta[1:9000, 1:5]), t(cls_tt[1:9000, 3:2501]/10), in_K = 30, verb = 1)
-res <- gllim_inverse_map(t(cls_tt[9001:10000, 3:2501])/10, gllim_res)
-#dists = sqrt(colSums((res$x_exp - t(all_theta[9001:10000, 1:5]))**2))
+gllim_res <- gllim(t(all_theta[1:9000, 1:5]), t(cls_tt[1:9000, 3:2501]/10), in_K = 70, verb = 1)
+res <- gllim_inverse_map(t(cls_tt[1:10000, 3:2501])/10, gllim_res)
+dists = sqrt(colSums((res$x_exp - t(all_theta[1:10000, 1:5]))**2))
+rowMeans(abs((res$x_exp - t(all_theta[1:10000, 1:5]))))
 npySave("all_predictions.npy", res$x_exp)
 
 
@@ -27,16 +28,16 @@ npySave("all_predictions.npy", res$x_exp)
 #rowMeans(abs((res$x_exp - t(all_theta[9001:10000, 1:5]))))
 #t <- res$all_sigmastar
 #save(t, file="all_sigmas.RData")
-#npySave("all_means.npy", res$x_exp)
-#npySave("all_weights.npy", res$alpha)
+npySave("all_means.npy", res$x_exp)
+npySave("all_weights.npy", res$alpha)
 #t <- res$all_sigmastar
 #np = import("numpy")
 #save(t, file="test.npy")
 
-#for(i in 1:5){
-#  path = paste("all_sigma_", as.character(i), ".npy", sep="")
-#  npySave(path, res$all_sigmastar[,,i])
-#}
+for(i in 1:70){
+  path = paste("all_sigma_", as.character(i), ".npy", sep="")
+  npySave(path, res$all_sigmastar[,,i])
+}
          
 ### Trying with uniform samples:
 #cls_tt_uniform = npyLoad("all_cls_hat_uniform.npy")
