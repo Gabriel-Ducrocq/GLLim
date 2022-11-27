@@ -10,8 +10,8 @@ library(RJSONIO)
 
 
 
-cls_tt = npyLoad("all_cls_hat.npy")
-all_theta <- npyLoad("all_theta.npy")
+cls_tt = npyLoad("/local/data1/gabdu45/gllim/data/all_cls_hat.npy")
+all_theta <- npyLoad("/local/data1/gabdu45/gllim/data/all_theta.npy")
 dim(all_theta)
 dim(t(cls_tt[1:10000, 3:2501]))
 
@@ -20,7 +20,7 @@ gllim_res <- gllim(t(all_theta[1:9000, 1:5]), t(cls_tt[1:9000, 3:2501]/10), in_K
 res <- gllim_inverse_map(t(cls_tt[1:10000, 3:2501])/10, gllim_res)
 dists = sqrt(colSums((res$x_exp - t(all_theta[1:10000, 1:5]))**2))
 rowMeans(abs((res$x_exp - t(all_theta[1:10000, 1:5]))))
-npySave("all_predictions.npy", res$x_exp)
+#npySave("all_predictions.npy", res$x_exp)
 
 
 
@@ -28,14 +28,14 @@ npySave("all_predictions.npy", res$x_exp)
 #rowMeans(abs((res$x_exp - t(all_theta[9001:10000, 1:5]))))
 #t <- res$all_sigmastar
 #save(t, file="all_sigmas.RData")
-npySave("all_means.npy", res$x_exp)
-npySave("all_weights.npy", res$alpha)
+npySave("/local/data1/gabdu45/gllim/data/all_means.npy", res$x_exp)
+npySave("/local/data1/gabdu45/gllim/data/all_weights.npy", res$alpha)
 #t <- res$all_sigmastar
 #np = import("numpy")
 #save(t, file="test.npy")
 
 for(i in 1:70){
-  path = paste("all_sigma_", as.character(i), ".npy", sep="")
+  path = paste("/local/data1/gabdu45/gllim/data/all_sigma_", as.character(i), ".npy", sep="")
   npySave(path, res$all_sigmastar[,,i])
 }
          
